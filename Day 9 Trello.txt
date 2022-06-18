@@ -1,0 +1,5 @@
+deploying in production opitimization and essentials
+server ec2
+ubuntu
+create script for installation of nginx, nodejs, mongodb, pm2, 
+typescript

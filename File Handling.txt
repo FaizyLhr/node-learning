@@ -1,0 +1,17 @@
+const fs = require('fs')
+
+fs.open('/Users/joe/test.txt', 'r', (err, fd) => {
+  //fd is our file descriptor
+})
+
+path module
+
+const path = require('path')
+
+const notes = '/users/joe/notes.txt'
+
+path.dirname(notes) // /users/joe
+path.basename(notes) // notes.txt
+path.extname(notes) // .txt
+
+path.basename(notes, path.extname(notes)) //notes

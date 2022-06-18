@@ -1,0 +1,9 @@
+setTimeout
+process.nextTick
+setImmediate
+recursive setTimeout
+
+promise
+promise callback
+Promise.all
+Promise.race

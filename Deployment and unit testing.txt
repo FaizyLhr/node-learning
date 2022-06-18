@@ -1,0 +1,10 @@
+Heroku
+Scripts
+ngnix
+pm2
+Scripts
+how to deploy node js app on digital ocean droplet
+unit testing 
+chai
+moka
+jest

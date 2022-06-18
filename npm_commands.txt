@@ -1,0 +1,29 @@
+npm install
+npm install <package-name>
+npm install -g <package-name>
+
+
+npx run <package-name>
+npm run <task-name>
+
+
+npm update
+npm update --save-dev
+npm update --no-save
+npm update <package-name>
+npm outdated
+1.npm-check-updates  2.ncu -u
+
+
+npm list
+npm list -g
+npm list --depth=0
+npm list <package-name>
+npm list minimist
+npm view [package_name] version
+npm install <package-name>@version e.g. npm install cowsay@1.2.0
+npm view <package> versions
+
+
+npm uninstall <package-name>
+npm uninstall -g <package-name>

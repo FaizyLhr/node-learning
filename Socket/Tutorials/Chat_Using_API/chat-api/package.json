@@ -1,0 +1,55 @@
+{
+  "name": "chat-api",
+  "version": "1.0.0",
+  "description": "Simple chat API with postgresql db, allowing users to talk to one another",
+  "main": "index.js",
+  "engines": {
+    "node": "5.11.1",
+    "npm": "3.8.6"
+  },
+  "scripts": {
+    "start": "node dist/server.bundle.js",
+    "build": "webpack --config webpack.config.js",
+    "dev": "concurrently \"npm run build -- --watch\" \"nodemon dist/server.bundle.js\"",
+    "test": "mocha",
+    "lint": "eslint --config=./.eslintrc src/**/*.js*",
+    "heroku-postbuild": "webpack --config webpack.config.js",
+    "load:schema": "node dist/pg_schema.bundle.js"
+  },
+  "author": "Sebastian Radloff",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "http-status": "^0.2.5",
+    "pg": "^6.1.2",
+    "pg-connection-string": "^0.1.3",
+    "promise": "^7.1.1",
+    "swagger-jsdoc": "^1.9.1",
+    "uuid-validate": "0.0.2",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "chai": "^3.5.0",
+    "concurrently": "^3.1.0",
+    "eslint": "^3.14.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "imports-loader": "^0.7.0",
+    "mocha": "^3.2.0",
+    "moment": "^2.17.1",
+    "node-uuid": "^1.4.7",
+    "nodemon": "^1.11.0",
+    "sinon": "^1.17.7",
+    "sinon-as-promised": "^4.0.2",
+    "sinon-chai": "^2.8.0",
+    "supertest": "^2.0.1",
+    "webpack": "^1.14.0"
+  }
+}

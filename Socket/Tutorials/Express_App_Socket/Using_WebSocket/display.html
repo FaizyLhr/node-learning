@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Web Socket</h1>
+		<script>
+			var ws = new WebSocket("ws://" + window.location.host + "/");
+
+			ws.addEventListener("error", function (m) {
+				log("error");
+			});
+
+			ws.addEventListener("open", function (m) {
+				console.log("frontEnd websocket connection open");
+				document.body.innerHTML = "<h1>Entered</h1>";
+			});
+
+			ws.addEventListener("message", function (m) {
+				console.log(m.data);
+				document.body.innerHTML += m.data;
+			});
+		</script>
+	</body>
+</html>

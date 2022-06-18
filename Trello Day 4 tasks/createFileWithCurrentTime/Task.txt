@@ -1,0 +1,7 @@
+1- When ever the request has the crash or any exception.
+> Create folder of logs.
+> Create filname with > date and time (DD/MM/YYYY  hh:mm aa .log)
+> Write the current error or exception in this file.
+
+2- Create a url for logs to see the above urls (localhost:3000/api/logs) 
+> this will retrun the list of all the files

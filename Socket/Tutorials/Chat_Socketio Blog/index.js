@@ -1,0 +1,40 @@
+const { Socket } = require("dgram");
+const express = require("express");
+const app = express();
+const http = require("http");
+const server = http.createServer(app);
+
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+const port = process.env.PORT || 3000;
+
+// console.log(Server);
+// console.log(io);
+// console.log(server);
+
+app.get("/", (req, res) => {
+	res.sendFile(__dirname + "/index.html");
+});
+
+io.on("connection", (socket) => {
+	console.log("A User Connected");
+	socket.on("disconnect", () => {
+		console.log("User Disconnected");
+	});
+});
+
+io.on("connection", (socket) => {
+	socket.on("chat message", (msg) => {
+		// console.log("message: " + msg);
+		io.emit("chat message", msg);
+	});
+});
+
+io.on("connection", (socket) => {
+	socket.broadcast.emit("hi");
+});
+
+server.listen(port, () => {
+	console.log(`app is listening on port: ${port}`);
+});

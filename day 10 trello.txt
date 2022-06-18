@@ -1,0 +1,7 @@
+-How load balancer works nginx?
+-Study CI CD Tools> which one is better
+-jenkins
+-script for jenkins and its setup
+-github plugin with jenkins
+-perform CD
+-create a service to backup the mongoDb + Script

@@ -1,0 +1,53 @@
+Root Index
+
+//Merging socket With Api
+const http = require("http");
+const server = http.createServer(app);
+
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+io.on("connection", (socket) => {
+	console.log("a user connected");
+	socket.on("disconnect", () => {
+		console.log("user disconnected");
+	});
+});
+
+io.on("connection", (socket) => {
+	socket.on("chat message", (msg) => {
+		io.emit("chat message", msg);
+	});
+});
+
+io.on("connection", (socket) => {
+	socket.on("chat message", (msg) => {
+		try {
+			console.log(msg);
+
+			// Create user in our database
+			const msgBody = await MessageModel.create({
+				text: msg,
+			});
+			msgBody.SentBy = req.user._id;
+			msgBody.save();
+			res.status(201).send(msgBody);
+		} catch (e) {
+			console.log(e);
+		}
+		io.emit("chat message", msg);
+	});
+});
+
+server.listen(port, () => {
+	console.log(`App is listening on port: ${port}`);
+});
+
+User Router.js
+router.use("/socketCall", async (req, res) => {
+	res.sendFile(path.join(__dirname + "../../../public/display.html"));
+});
+router.use("/:fid/socketCall", getUser, async (req, res) => {
+	// console.log(__dirname);
+	res.sendFile(path.join(__dirname + "../../../public/display.html"));
+});
